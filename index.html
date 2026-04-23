@@ -101,22 +101,29 @@
       pointer-events: none;
     }
 
-    .hero-astronaut {
+    .hero-spaceship {
       position: absolute;
-      right: -2%;
-      bottom: -5%;
-      height: 85vh;
-      max-height: 680px;
-      width: auto;
+      right: 2%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44vw;
+      max-width: 620px;
+      min-width: 320px;
       object-fit: contain;
       pointer-events: none;
-      filter: drop-shadow(0 0 80px rgba(254,110,54,0.30));
+      filter: drop-shadow(0 0 60px rgba(254,110,54,0.18));
+      animation: float 7s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(-50%) translateY(0px); }
+      50%       { transform: translateY(-50%) translateY(-18px); }
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 680px;
+      max-width: 620px;
     }
 
     .eyebrow {
@@ -139,7 +146,7 @@
     }
 
     h1 {
-      font-size: clamp(4rem, 9vw, 8rem);
+      font-size: clamp(3.5rem, 8vw, 7.5rem);
       letter-spacing: -0.04em;
       line-height: 0.95;
       margin-bottom: 3rem;
@@ -182,7 +189,7 @@
     }
 
     .big-num {
-      font-size: clamp(4rem, 8vw, 7rem);
+      font-size: clamp(3.5rem, 7vw, 6.5rem);
       font-weight: 700;
       letter-spacing: -0.04em;
       line-height: 0.9;
@@ -264,6 +271,53 @@
       color: var(--text-light);
     }
 
+    /* WHAT WE DELIVER */
+    .deliver-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .deliver-item {
+      padding: 2rem 1.75rem;
+      border-radius: 14px;
+      background: rgba(23,63,63,0.18);
+      border: 1px solid rgba(23,63,63,0.5);
+    }
+
+    .deliver-item .icon {
+      width: 44px;
+      height: 44px;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(254,110,54,0.1);
+      border-radius: 12px;
+    }
+
+    .deliver-item .icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--orange);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .deliver-item h4 {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+      color: var(--white);
+    }
+
+    .deliver-item p {
+      font-size: 0.82rem;
+      color: var(--text-light);
+    }
+
     /* TIMELINE / ROADMAP */
     .timeline { margin-top: 4rem; }
 
@@ -326,53 +380,6 @@
       background: rgba(254,110,54,0.15);
       color: var(--orange);
       border-color: rgba(254,110,54,0.3);
-    }
-
-    /* CARE PLAN SECTION */
-    .care-plan-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 2.5rem;
-    }
-
-    .care-item {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-      padding: 1.25rem 1.5rem;
-      border-radius: 12px;
-      background: rgba(23,63,63,0.2);
-      border: 1px solid rgba(23,63,63,0.5);
-    }
-
-    .care-icon {
-      flex-shrink: 0;
-      width: 32px;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .care-icon svg {
-      width: 20px;
-      height: 20px;
-      stroke: var(--orange);
-      fill: none;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .care-item h4 {
-      font-size: 0.88rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .care-item p {
-      font-size: 0.8rem;
-      color: var(--text-light);
     }
 
     /* PRICING */
@@ -439,7 +446,7 @@
     }
 
     .price-amount {
-      font-size: 2.8rem;
+      font-size: 2.6rem;
       font-weight: 700;
       letter-spacing: -0.04em;
       line-height: 1;
@@ -551,43 +558,70 @@
     .badge--included { background: rgba(23,63,63,0.6); color: #7fffd4; border: 1px solid rgba(127,255,212,0.2); }
     .badge--not { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.35); border: 1px solid rgba(255,255,255,0.08); }
 
-    /* RISK TABLE */
-    .risk-table {
-      width: 100%;
-      border-collapse: collapse;
+    /* SLA TABLE */
+    .sla-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
       margin-top: 2.5rem;
+    }
+
+    .sla-item {
+      padding: 1.75rem;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .sla-item h4 {
       font-size: 0.88rem;
-    }
-
-    .risk-table th {
-      text-align: left;
-      padding: 0.85rem 1rem;
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .risk-table td {
-      padding: 1.1rem 1rem;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      color: var(--text-light);
-      vertical-align: top;
-    }
-
-    .risk-table td:first-child { color: var(--white); font-weight: 500; }
-
-    .risk-level {
-      display: inline-block;
-      font-size: 0.7rem;
       font-weight: 700;
-      padding: 0.2rem 0.65rem;
-      border-radius: 6px;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
     }
 
-    .risk-level--low { background: rgba(23,200,100,0.12); color: #4ade80; border: 1px solid rgba(74,222,128,0.2); }
-    .risk-level--med { background: rgba(254,110,54,0.12); color: var(--orange); border: 1px solid rgba(254,110,54,0.25); }
+    .sla-item h4::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--orange);
+      flex-shrink: 0;
+    }
+
+    .sla-item p {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      line-height: 1.65;
+    }
+
+    .sla-highlight {
+      margin-top: 2.5rem;
+      padding: 1.75rem 2rem;
+      border-radius: 14px;
+      background: rgba(254,110,54,0.07);
+      border: 1px solid rgba(254,110,54,0.2);
+    }
+
+    .sla-highlight h4 {
+      font-size: 0.88rem;
+      color: var(--orange);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+    }
+
+    .sla-highlight p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
 
     /* DIVIDER */
     .divider {
@@ -622,15 +656,16 @@
       opacity: 0.25;
     }
 
-    .cta-astronaut {
+    .cta-spaceship {
       position: absolute;
-      right: -2%;
-      bottom: 0;
-      height: 80vh;
-      max-height: 580px;
+      right: -1%;
+      bottom: 5%;
+      width: 36vw;
+      max-width: 480px;
       object-fit: contain;
       pointer-events: none;
-      opacity: 0.6;
+      opacity: 0.5;
+      filter: drop-shadow(0 0 40px rgba(254,110,54,0.2));
     }
 
     .cta-content {
@@ -709,11 +744,16 @@
     footer img { height: 22px; opacity: 0.6; }
     footer p { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
 
+    @media (max-width: 900px) {
+      .deliver-grid { grid-template-columns: 1fr 1fr; }
+    }
+
     @media (max-width: 768px) {
-      .grid-2, .challenge-grid, .care-plan-grid, .pricing-grid { grid-template-columns: 1fr; }
+      .grid-2, .challenge-grid, .sla-grid, .pricing-grid, .deliver-grid { grid-template-columns: 1fr; }
       .intro-strip-inner { flex-direction: column; gap: 1.5rem; }
       nav { padding: 1rem 1.5rem; }
       .section { padding: 5rem 1.5rem; }
+      .hero-spaceship { display: none; }
     }
   </style>
 </head>
@@ -729,10 +769,14 @@
     <div class="hero-bg"></div>
     <img src="assets/clouds.webp" class="hero-clouds" alt="" />
     <div class="hero-ellipse"></div>
-    <img src="assets/spaceship.png" class="hero-astronaut" alt="" />
+    <img
+      src="assets/spaceship.png"
+      class="hero-spaceship"
+      alt=""
+    />
     <div class="hero-content">
-      <div class="eyebrow"><span></span> Constellation x Aspen Digital <span></span></div>
-      <h1>AI That<br /><em>Actually</em><br />Sticks.</h1>
+      <div class="eyebrow"><span></span> Aspen Digital x Constellation <span></span></div>
+      <h1>AI <em>Adoption</em><br />Retainer.</h1>
       <div class="hero-meta">
         <div class="hero-meta-item">
           <label>Client</label>
@@ -740,15 +784,15 @@
         </div>
         <div class="hero-meta-item">
           <label>Contacts</label>
-          <value>Jeroen Meijer &amp; Roger Hulsen</value>
+          <value>Jeroen Meijer &amp; Jory</value>
         </div>
         <div class="hero-meta-item">
-          <label>Focus</label>
-          <value>Microsoft Copilot Adoption</value>
+          <label>Technology</label>
+          <value>Microsoft Copilot</value>
         </div>
         <div class="hero-meta-item">
           <label>Engagement</label>
-          <value>Monthly Retainer</value>
+          <value>3-Month Minimum Retainer</value>
         </div>
         <div class="hero-meta-item">
           <label>Date</label>
@@ -765,52 +809,52 @@
   <!-- INTRO STRIP -->
   <div class="intro-strip">
     <div class="intro-strip-inner">
-      <div class="big-num">3mo</div>
-      <p>You have done the intro. The team has seen what Microsoft Copilot can do. The risk now is adoption drift — people try it once, do not see immediate value, and quietly go back to old habits. This retainer exists to make sure that does not happen.</p>
+      <div class="big-num">3mo+</div>
+      <p>Our workshop confirmed the diagnosis: Aspen Digital's team is using AI, but using it as a faster typewriter rather than a strategic partner. This engagement picks up exactly where the session ended — moving from alignment on the vision to building the system that makes it real.</p>
     </div>
   </div>
 
-  <!-- 01 THE CHALLENGE -->
+  <!-- 01 CHALLENGE -->
   <section class="section section--dark">
     <div class="container">
       <div class="section-label">01 — The Challenge</div>
       <div class="grid-2">
         <div>
-          <h2>The intro session worked.<br />Now comes the hard part.</h2>
+          <h2>Usage is up. <em>Impact</em> is not. Why?</h2>
         </div>
         <div>
-          <p style="color:var(--text-light);font-size:0.95rem;margin-bottom:1.5rem;">AI adoption does not fail because the technology is not good enough. It fails because organisations treat it as a one-time event rather than an ongoing change programme. The intro session was the spark. Without structure and accountability, that spark does not become a habit.</p>
-          <p style="color:var(--text-light);font-size:0.95rem;">Four patterns kill AI adoption inside organisations. All four are solvable with the right ongoing support.</p>
+          <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 1.5rem;">The workshop surfaced the core pattern clearly: Aspen Digital's specialists are using AI, but using it as a faster typewriter rather than a strategic partner. The result is more output — but not better outcomes. More reports generated, but not faster insights. More drafts produced, but still heavily edited.</p>
+          <p style="color: var(--text-light); font-size: 0.95rem;">Three barriers are driving this. They are not technology problems. They are system design problems — and they are exactly what this engagement is built to solve.</p>
         </div>
       </div>
-      <div class="challenge-grid" style="margin-top:3.5rem;">
+      <div class="challenge-grid" style="margin-top: 3.5rem;">
         <div class="challenge-item">
           <div class="icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
-          <h4>Adoption drift</h4>
-          <p>Teams try Copilot once or twice after the intro session. Without a clear use case that fits their actual daily work, they stop. Within two weeks the habit is gone.</p>
-        </div>
-        <div class="challenge-item">
-          <div class="icon">
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <h4>Uneven uptake across teams</h4>
-          <p>One team uses Copilot daily. Another has not opened it since the launch. The gap creates inconsistent output quality and internal friction about whether the investment was worth it.</p>
-        </div>
-        <div class="challenge-item">
-          <div class="icon">
-            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
-          </div>
-          <h4>No internal playbook</h4>
-          <p>People do not know which prompts to use, which workflows to apply AI to, or what good output looks like. Without a playbook, every person figures it out individually — and most give up.</p>
+          <h4>The trust gap</h4>
+          <p>Manual analysis still feels safer. The perception is that AI output requires so much verification it is faster to do the work manually. Until the team has structured, context-rich prompts built around their actual workflows, this perception does not change.</p>
         </div>
         <div class="challenge-item">
           <div class="icon">
             <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
           </div>
-          <h4>No way to measure progress</h4>
-          <p>Organisations invest in Microsoft licences but cannot show internally what the return looks like. Without a measurement framework, AI adoption stays a cost rather than a competitive advantage.</p>
+          <h4>Inconsistent output</h4>
+          <p>Generic tools produce generic results. Without structured client context and brand guidelines loaded into the workflow, every output requires heavy editing. The overhead negates the time saving — and kills adoption momentum faster than anything else.</p>
+        </div>
+        <div class="challenge-item">
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h4>Fear of obsolescence</h4>
+          <p>A natural hesitation to automate core workflows — because it is still unclear how specialist roles evolve once execution is handled by agents. This is not resistance to AI. It is a reasonable response to uncertainty. The answer is not reassurance. It is a clear model of what the elevated role looks like.</p>
+        </div>
+        <div class="challenge-item">
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <h4>No system — only tools</h4>
+          <p>Copilot exists in the stack. But it is not connected to the data streams that matter: client performance data, anomaly thresholds, approval workflows. Without the Control Tower architecture, the team is still manually checking five platforms and writing reports from scratch every month.</p>
         </div>
       </div>
     </div>
@@ -818,42 +862,60 @@
 
   <div class="divider"></div>
 
-  <!-- 02 HOW WE WORK -->
+  <!-- 02 WHAT WE DELIVER -->
   <section class="section section--dark">
     <div class="container">
-      <div class="section-label">02 — How We Work</div>
+      <div class="section-label">02 — What We Deliver</div>
       <div class="grid-2">
         <div>
-          <h2>Advisory hours,<br />not development hours.</h2>
+          <h2>From <em>executor</em> to director. This is how we get there.</h2>
         </div>
         <div>
-          <p style="color:var(--text-light);font-size:0.95rem;">This retainer is structured differently to a standard dev retainer. The work is think-work — strategy sessions, playbook design, facilitation, implementation guidance, and internal comms. The deliverable is often a framework, a policy, or a trained team, not a codebase.</p>
+          <p style="color: var(--text-light); font-size: 0.95rem;">The workshop defined the destination: a Control Tower model where agents monitor the data streams, detect anomalies, draft responses, and route to specialists for approval. You review. You approve. The agent executes. This retainer is the structured path from where Aspen Digital is today to that operating model — built on advisory work, not development hours.</p>
         </div>
       </div>
-      <div class="care-plan-grid">
-        <div class="care-item">
-          <div class="care-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-          <div><h4>Monthly strategy sessions</h4><p>Deep-dive with Aspen leadership each month. Outcomes documented and shared after every session.</p></div>
+      <div class="deliver-grid">
+        <div class="deliver-item">
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          </div>
+          <h4>Workflow Mapping &amp; Standardisation</h4>
+          <p>We map the workflows that are highest-volume and most repetitive — starting with reporting, SEO monitoring, and PPC anomaly detection. Standardised client context sheets built before any agent is configured.</p>
         </div>
-        <div class="care-item">
-          <div class="care-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-          <div><h4>Playbook and policy design</h4><p>Prompt libraries, AI policy docs, workflow guides — tailored to Aspen, not generic templates.</p></div>
+        <div class="deliver-item">
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <h4>Structured Prompt Library</h4>
+          <p>Role-specific, workflow-specific prompt templates built from Aspen Digital's actual client briefs, brand voice guidelines, and reporting formats. Not generic. Not transferable. Built for your team's specific execution patterns.</p>
         </div>
-        <div class="care-item">
-          <div class="care-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
-          <div><h4>Copilot use case development</h4><p>Identify, test, and document the specific Copilot workflows that create the most value for Aspen teams.</p></div>
+        <div class="deliver-item">
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h4>Copilot Studio Integration Design</h4>
+          <p>Architecture and configuration guidance for deploying tailored agents into SharePoint, Outlook, and Teams — mapping each agent to a specific workflow with defined data inputs, approval routing, and output format.</p>
         </div>
-        <div class="care-item">
-          <div class="care-icon"><svg viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div>
-          <div><h4>Internal comms and change management</h4><p>Adoption is a change management problem. We design the communications that keep teams bought in beyond month one.</p></div>
+        <div class="deliver-item">
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h4>Control Tower Blueprint</h4>
+          <p>The strategic and operational design for Aspen Digital's Control Tower: anomaly detection thresholds, review and approve governance, escalation logic, and the data layer connections (GSC, Ads, CRM) that make autonomous monitoring possible.</p>
         </div>
-        <div class="care-item">
-          <div class="care-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-          <div><h4>Async advisory channel</h4><p>A dedicated Slack or WhatsApp channel for questions, guidance, and wins between scheduled sessions.</p></div>
+        <div class="deliver-item">
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h4>Specialist Role Design</h4>
+          <p>A clear model of what each specialist's role looks like when AI handles execution — addressing the fear of obsolescence directly. The shift from executor to director is defined, documented, and communicated internally before agents go live.</p>
         </div>
-        <div class="care-item">
-          <div class="care-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-          <div><h4>Monthly adoption report</h4><p>What was adopted, what shifted, what is next, and where blockers remain — every month without fail.</p></div>
+        <div class="deliver-item">
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <h4>Monthly Progress Report</h4>
+          <p>Tracking the metrics that matter: time spent on manual reporting, ranking drop response time, internal admin hours, and specialist time reclaimed for strategy. Month 3 report includes the full ROI narrative against the baseline set in Month 1.</p>
         </div>
       </div>
     </div>
@@ -861,58 +923,61 @@
 
   <div class="divider"></div>
 
-  <!-- 03 ROADMAP -->
+  <!-- 03 90-DAY ROADMAP -->
   <section class="section section--alt">
     <div class="container">
       <div class="section-label">03 — 90-Day Roadmap</div>
       <div class="grid-2">
         <div>
-          <h2>From intro to embedded<br />habit in 90 days.</h2>
+          <h2>Three months to a <em>functioning</em> AI-first operation.</h2>
         </div>
         <div>
-          <p style="color:var(--text-light);font-size:0.95rem;">The first three months follow a structured ramp. Each phase builds on the last. By Month 3, Copilot is no longer a tool people are learning — it is part of how Aspen works.</p>
+          <p style="color: var(--text-light); font-size: 0.95rem;">The workshop outlined a 6-month vision: standardisation, then Copilot Studio integration, then Control Tower beta. This 3-month engagement covers the first two phases in full and delivers the architectural blueprint for the third. Each month builds the foundation the next month requires — nothing is skipped.</p>
         </div>
       </div>
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-dot">01</div>
           <div class="timeline-body">
-            <div class="weeks">Month 1 — Foundation</div>
-            <h3>Map the opportunity and build the base</h3>
-            <p>Discovery sprint across teams to identify the highest-value Copilot use cases specific to Aspen's workflows. Adoption baseline established. First prompt library and workflow guide delivered. Internal comms plan drafted.</p>
+            <div class="weeks">Month 1 — Standardisation</div>
+            <h3>Client Sheets, Structured Prompting &amp; Adoption Baseline</h3>
+            <p>Before anything is automated, the inputs must be standardised. We build the client context sheets that every agent will eventually rely on, and train the team on structured prompting — replacing ad hoc AI use with consistent, context-rich workflows. Adoption baseline recorded: time on manual reporting, response times, specialist hours on strategy vs execution.</p>
             <div class="timeline-tags">
-              <span class="tag">Use case discovery</span>
-              <span class="tag">Adoption baseline</span>
+              <span class="tag">Client context sheets</span>
+              <span class="tag">Structured prompting</span>
               <span class="tag">Prompt library v1</span>
-              <span class="tag tag--orange">Workflow guide</span>
+              <span class="tag">Adoption baseline</span>
+              <span class="tag tag--orange">V1 scope confirmed</span>
             </div>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-dot">02</div>
           <div class="timeline-body">
-            <div class="weeks">Month 2 — Activation</div>
-            <h3>Deploy the playbook and drive uptake</h3>
-            <p>Playbook deployed across target teams. Individual team leads coached on embedding Copilot into daily workflows. Blockers identified and removed. Mid-month check-in to review uptake data. AI policy document completed and signed off internally.</p>
+            <div class="weeks">Month 2 — Copilot Studio Integration</div>
+            <h3>Agents Deployed into SEO, PPC &amp; Reporting Workflows</h3>
+            <p>Tailored agents configured and deployed into SharePoint, Outlook, and Teams — mapped to Aspen Digital's three highest-volume workflows: SEO monitoring (keyword tracking to client update), PPC oversight (CPA anomaly detection to ad variation), and operations reporting (data aggregation to executive summary draft). Approval flow governance defined and live.</p>
             <div class="timeline-tags">
-              <span class="tag">Playbook deployment</span>
-              <span class="tag">Team lead coaching</span>
-              <span class="tag">AI policy doc</span>
-              <span class="tag tag--orange">Uptake review</span>
+              <span class="tag">SEO monitoring agent</span>
+              <span class="tag">PPC anomaly agent</span>
+              <span class="tag">Reporting agent</span>
+              <span class="tag">SharePoint / Teams / Outlook</span>
+              <span class="tag tag--orange">Approval governance live</span>
             </div>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-dot">03</div>
           <div class="timeline-body">
-            <div class="weeks">Month 3 — Embed and Measure</div>
-            <h3>Lock in habits and prove the return</h3>
-            <p>Adoption data reviewed against baseline. ROI narrative built for leadership — time saved, output quality improvements, team confidence. Prompt library updated to v2. Roadmap for Month 4+ scoped. Retainer renewal reviewed.</p>
+            <div class="weeks">Month 3 — Measure &amp; Blueprint</div>
+            <h3>ROI Against Baseline, Prompt Library v2 &amp; Control Tower Blueprint</h3>
+            <p>Month 3 delivers the evidence: adoption data reviewed against the Month 1 baseline, measuring time reclaimed, response time improvement, and output quality. Prompt library v2 released with refinements from live usage. Full Control Tower blueprint delivered — the complete architectural design for Phase 3 (automated anomaly detection, review and approve model), ready to execute from Month 4 onward.</p>
             <div class="timeline-tags">
               <span class="tag">ROI narrative</span>
               <span class="tag">Prompt library v2</span>
               <span class="tag">Adoption data review</span>
-              <span class="tag tag--orange">Roadmap Month 4+</span>
+              <span class="tag tag--orange">Control Tower blueprint</span>
+              <span class="tag">Month 4+ roadmap</span>
             </div>
           </div>
         </div>
@@ -926,130 +991,226 @@
   <section class="section section--dark">
     <div class="container">
       <div class="section-label">04 — Investment</div>
-      <div class="grid-2" style="margin-bottom:0.5rem;">
+      <div class="grid-2" style="margin-bottom: 0.5rem;">
         <div>
-          <h2>Three tiers.<br />One recommendation.</h2>
+          <h2>Three tiers. One recommendation.</h2>
         </div>
         <div>
-          <p style="color:var(--text-light);font-size:0.95rem;">All tiers are structured around advisory hours, not development hours. The difference between tiers is depth, cadence, and how many teams we work across simultaneously. Minimum 3-month commitment. All amounts in ZAR, exclusive of VAT.</p>
+          <p style="color: var(--text-light); font-size: 0.95rem;">All tiers include async support, monthly reporting, and the full 90-day roadmap. Advisory hours scale with the scope of the engagement — number of teams, depth of playbook work, and the level of strategic involvement required. All amounts in EUR, exclusive of VAT. 3-month minimum commitment, monthly rolling thereafter.</p>
         </div>
       </div>
+
       <div class="pricing-grid">
+
+        <!-- STARTER -->
         <div class="pricing-card">
           <div class="pricing-card-head">
             <div class="pricing-tier-label">Tier 1</div>
             <h4>Starter</h4>
-            <div class="price-amount">R8,500 <span class="price-period">/ mo</span></div>
-            <div class="price-total">3-month minimum: R25,500</div>
+            <div class="price-amount">EUR 450 <span class="price-period">/ mo</span></div>
+            <div class="price-total">3-month total: EUR 1,350</div>
           </div>
           <div class="pricing-card-body">
-            <p class="best-for">Best for early-stage adoption with a single team or business unit getting clear and quick wins.</p>
+            <p class="best-for">Single-team engagement. Establishes the foundation without overcommitting advisory resource.</p>
             <ul class="feature-list">
-              <li class="highlight">6 advisory hours per month</li>
-              <li>1x monthly strategy session (1hr)</li>
-              <li>Prompt library and workflow guide — 1 team</li>
-              <li>Async advisory channel</li>
-              <li>Monthly adoption summary report</li>
+              <li class="hours-highlight">6 advisory hours / month</li>
+              <li>1 team in scope</li>
+              <li>Prompt library built and delivered</li>
+              <li>Monthly adoption report</li>
+              <li>Async support channel (business hours)</li>
+              <li>90-day roadmap</li>
             </ul>
           </div>
         </div>
+
+        <!-- GROWTH RECOMMENDED -->
         <div class="pricing-card recommended">
           <div class="recommended-badge">Recommended</div>
           <div class="pricing-card-head">
             <div class="pricing-tier-label">Tier 2</div>
             <h4>Growth</h4>
-            <div class="price-amount">R14,000 <span class="price-period">/ mo</span></div>
-            <div class="price-total">3-month minimum: R42,000</div>
+            <div class="price-amount">EUR 750 <span class="price-period">/ mo</span></div>
+            <div class="price-total">3-month total: EUR 2,250</div>
           </div>
           <div class="pricing-card-body">
-            <p class="best-for">Active rollout across multiple teams with leadership visibility and meaningful internal change.</p>
+            <p class="best-for">Based on our workshop conversation, this is the right tier. Starter doesn't give us enough hours to cover standardisation and Copilot Studio integration simultaneously. Partner is the right destination once the Control Tower is live — not where we start.</p>
             <ul class="feature-list">
-              <li class="highlight">12 advisory hours per month</li>
-              <li>1x strategy session + 1x mid-month check-in</li>
-              <li>1 major deliverable per month (playbook, policy doc, or prompt library)</li>
-              <li>Multi-team rollout support</li>
-              <li>Async advisory channel</li>
-              <li>Monthly adoption report + quarterly roadmap</li>
+              <li class="hours-highlight">12 advisory hours / month</li>
+              <li>Everything in Starter</li>
+              <li>Copilot Studio agent configuration (SEO, PPC, reporting)</li>
+              <li>Full structured prompt library built for Aspen workflows</li>
+              <li>Mid-month check-in cadence</li>
+              <li>Approval governance design</li>
+              <li>Control Tower blueprint delivered Month 3</li>
             </ul>
           </div>
         </div>
+
+        <!-- PARTNER -->
         <div class="pricing-card">
           <div class="pricing-card-head">
             <div class="pricing-tier-label">Tier 3</div>
             <h4>Partner</h4>
-            <div class="price-amount">R22,000 <span class="price-period">/ mo</span></div>
-            <div class="price-total">3-month minimum: R66,000</div>
+            <div class="price-amount">EUR 1,100 <span class="price-period">/ mo</span></div>
+            <div class="price-total">3-month total: EUR 3,300</div>
           </div>
           <div class="pricing-card-body">
-            <p class="best-for">Embedded fractional AI CDO model. Full programme across all business units with board-level visibility.</p>
+            <p class="best-for">Embedded fractional AI CDO model. For organisations committing to AI at board level, beyond Copilot.</p>
             <ul class="feature-list">
-              <li class="highlight">20+ advisory hours per month</li>
-              <li>Weekly leadership cadence</li>
-              <li>Full AI adoption programme design and management</li>
-              <li>All-team playbook, policy, and training design</li>
-              <li>Monthly adoption report + quarterly board readout</li>
+              <li class="hours-highlight">20+ advisory hours / month</li>
+              <li>Everything in Growth</li>
+              <li>Weekly cadence sessions</li>
+              <li>Board-level readout and ROI presentation</li>
               <li>Wider AI stack advisory beyond Copilot</li>
+              <li>Fractional AI CDO positioning for Aspen Digital</li>
+              <li>Extended async support (extended hours)</li>
             </ul>
           </div>
         </div>
+
       </div>
-      <p class="pricing-note">All amounts in ZAR, exclusive of VAT. Minimum 3-month commitment, monthly rolling thereafter. Hours not used within a calendar month are forfeited and do not roll over. Microsoft licensing, Copilot subscriptions, and third-party tooling remain Aspen Digital's responsibility. In-person sessions quoted separately.</p>
+
+      <p class="pricing-note">All amounts in EUR, exclusive of VAT. Minimum 3-month commitment, monthly rolling thereafter with 30 days written notice to cancel. First month invoiced in advance upon signature of the SOW. Subsequent months invoiced on the 1st of each calendar month and due within 14 days. Advisory hours not used within a calendar month are forfeited and do not roll over. Pricing reviewed at the 3-month mark and annually. Microsoft licensing costs, any third-party tooling, and group training sessions beyond 1 hour per month are excluded from all tiers and remain the client's responsibility.</p>
     </div>
   </section>
 
   <div class="divider"></div>
 
   <!-- 05 OUT OF SCOPE -->
-  <section class="section section--alt">
+  <section class="section section--dark">
     <div class="container">
       <div class="section-label">05 — Out of Scope</div>
+      <h2 style="margin-bottom: 2rem;">What this retainer does not cover.</h2>
+      <table class="feature-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Status</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Custom software development</td>
+            <td><span class="badge badge--not">Not included</span></td>
+            <td>This is an advisory retainer. Any custom integrations, automations, or software builds are separate engagements scoped and priced independently.</td>
+          </tr>
+          <tr>
+            <td>Microsoft licensing costs</td>
+            <td><span class="badge badge--not">Not included</span></td>
+            <td>Microsoft 365 Copilot licensing fees remain the client organisation's responsibility. Constellation advises on optimal licensing; it does not procure or resell licences.</td>
+          </tr>
+          <tr>
+            <td>Group training beyond 1 hour per month</td>
+            <td><span class="badge badge--not">Not included</span></td>
+            <td>Up to 1 hour of group training per month is included as part of the advisory hours. Additional facilitated group sessions are scoped and quoted separately.</td>
+          </tr>
+          <tr>
+            <td>In-person sessions</td>
+            <td><span class="badge badge--not">Not included</span></td>
+            <td>All advisory work is delivered remotely. In-person sessions in the Netherlands or client site are available on request at a separately agreed day rate plus travel costs.</td>
+          </tr>
+          <tr>
+            <td>IT infrastructure and system configuration</td>
+            <td><span class="badge badge--not">Not included</span></td>
+            <td>Microsoft tenant configuration, Azure AD settings, and IT infrastructure work are the responsibility of the client's IT team or Microsoft partner. Constellation advises; it does not configure.</td>
+          </tr>
+          <tr>
+            <td>HR and legal review of AI policy documents</td>
+            <td><span class="badge badge--not">Not included</span></td>
+            <td>Constellation delivers the AI policy document as a strategic and operational framework. Legal review, HR alignment, and formal approval of the policy by the client's internal functions are the client's responsibility.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- 06 SLA & AGREEMENT -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-label">06 — SLA &amp; Agreement Framework</div>
       <div class="grid-2">
         <div>
-          <h2>What this proposal<br />does not cover.</h2>
+          <h2>How we work together. In writing.</h2>
         </div>
         <div>
-          <p style="color:var(--text-light);font-size:0.95rem;margin-bottom:1.5rem;">Keeping scope clear protects both sides. Anything outside this list is assessed and quoted separately before any work begins.</p>
-          <div style="display:flex;flex-direction:column;gap:0.75rem;">
-            <div style="padding:1rem 1.25rem;border-radius:10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);font-size:0.88rem;color:var(--text-light);">Custom software, app, or platform development</div>
-            <div style="padding:1rem 1.25rem;border-radius:10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);font-size:0.88rem;color:var(--text-light);">Microsoft licensing, Copilot subscriptions, or third-party tooling costs</div>
-            <div style="padding:1rem 1.25rem;border-radius:10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);font-size:0.88rem;color:var(--text-light);">Group training sessions beyond 1hr per month</div>
-            <div style="padding:1rem 1.25rem;border-radius:10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);font-size:0.88rem;color:var(--text-light);">In-person workshops or travel outside of agreed remote engagement</div>
-            <div style="padding:1rem 1.25rem;border-radius:10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);font-size:0.88rem;color:var(--text-light);">IT infrastructure, network configuration, or Microsoft admin setup</div>
-            <div style="padding:1rem 1.25rem;border-radius:10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);font-size:0.88rem;color:var(--text-light);">HR or legal review of AI policy documents produced under this engagement</div>
-          </div>
+          <p style="color: var(--text-light); font-size: 0.95rem;">All Constellation engagements are governed by a signed Statement of Work and executed via a two-signer e-sign process before any work begins. The framework below applies to this retainer in full.</p>
         </div>
+      </div>
+
+      <div class="sla-grid">
+        <div class="sla-item">
+          <h4>Statement of Work</h4>
+          <p>A formal SOW is issued at engagement start, specifying the selected tier, advisory hours, deliverables, milestones, and acceptance criteria for the 3-month minimum term. Any scope changes are documented by written amendment before work commences. No out-of-scope work begins without written approval.</p>
+        </div>
+        <div class="sla-item">
+          <h4>Milestone-Gated Delivery</h4>
+          <p>Each month's deliverables are defined upfront and signed off at month-end. This creates a clear progress record and ensures alignment before the next month's invoice is issued. Constellation does not advance to a new phase without the prior phase being accepted.</p>
+        </div>
+        <div class="sla-item">
+          <h4>Payment Terms</h4>
+          <p>Month 1 is invoiced in full upon signature of the SOW, prior to any work commencing. Subsequent months are invoiced on the 1st of the calendar month and due within 14 days. All invoices in EUR, exclusive of VAT. Late payments beyond 14 days attract a 1.5% monthly interest charge in accordance with Dutch commercial practice.</p>
+        </div>
+        <div class="sla-item">
+          <h4>Advisory Hours</h4>
+          <p>Hours are allocated per calendar month at the selected tier. Hours not used within the month are forfeited and do not roll over. Usage is tracked and reported transparently in each month's report. Any work exceeding the monthly allocation is flagged before it commences and quoted at the EUR 95/hr ad hoc advisory rate.</p>
+        </div>
+        <div class="sla-item">
+          <h4>Intellectual Property</h4>
+          <p>All deliverables — playbooks, prompt libraries, policy documents, adoption reports — transfer to the client organisation upon full payment of the relevant month's invoice. Constellation retains no rights to the deliverables after payment. The right to reference the engagement anonymously as a case study is reserved unless otherwise agreed in writing.</p>
+        </div>
+        <div class="sla-item">
+          <h4>Cancellation</h4>
+          <p>Minimum 3-month commitment. After the minimum term, either party may cancel with 30 days written notice. Cancellation during the minimum term does not entitle the client to a refund of amounts already paid. All work delivered to the cancellation date is invoiced and due at the applicable tier rate.</p>
+        </div>
+      </div>
+
+      <div class="sla-highlight">
+        <h4>E-Signature &amp; Execution</h4>
+        <p>The SOW and engagement letter are executed via two-signer e-sign. Signer A: Aldo Calitz, CEO, Constellation. Signer B: the nominated authorised representative of Aspen Digital, with KVK registration details included in the agreement. Documents are issued via a recognised e-signature platform. Both signatures are required, and Month 1 payment must be confirmed, before any work begins. Mutual confidentiality obligations are embedded in the SOW and survive termination indefinitely.</p>
       </div>
     </div>
   </section>
+
+  <div class="divider"></div>
 
   <!-- CTA / NEXT STEPS -->
   <section class="cta-section">
     <div class="cta-bg"></div>
+    <img src="assets/clouds.webp" class="cta-clouds" alt="" />
+    <img
+      src="assets/spaceship.png"
+      class="cta-spaceship"
+      alt=""
+    />
     <div class="cta-content">
-      <div class="eyebrow" style="justify-content:center;"><span></span> Next Steps <span></span></div>
-      <h2>Let's make AI<br /><em>stick.</em></h2>
-      <p>Three steps to get the first 90 days underway.</p>
-      <div class="cta-steps">
-        <div class="cta-step">
-          <div class="cta-step-num">01</div>
-          <p>Select your preferred tier and confirm the 3-month engagement with Aldo and the Constellation team.</p>
+      <div class="eyebrow" style="justify-content: center;"><span></span> Next Steps <span></span></div>
+      <h2>Ready to build<br /><em>what's next.</em></h2>
+      <p>Three steps to move from workshop alignment to live execution.</p>
+      <div class="steps-list">
+        <div class="step-item">
+          <div class="step-num">01</div>
+          <p>Confirm the Growth tier and the 3-month engagement. Constellation issues the SOW for e-sign — Aldo Calitz and the Aspen Digital signatory. Month 1 is invoiced on signature.</p>
         </div>
-        <div class="cta-step">
-          <div class="cta-step-num">02</div>
-          <p>Constellation schedules the Month 1 kick-off — a 90-minute discovery sprint to map Aspen's highest-value Copilot use cases and set the 30-day focus.</p>
+        <div class="step-item">
+          <div class="step-num">02</div>
+          <p>Month 1 kick-off: 90-minute session to confirm V1 scope, assign internal ownership, and begin the standardised client context sheet template. Async channel goes live in Week 1.</p>
         </div>
-        <div class="cta-step">
-          <div class="cta-step-num">03</div>
-          <p>The async advisory channel goes live. The prompt library build begins. Month 1 is underway.</p>
+        <div class="step-item">
+          <div class="step-num">03</div>
+          <p>Copilot Studio demo session scheduled for early Month 2. Approval flow governance defined before any agent goes into a live workflow.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <img src="assets/logo-white.svg" alt="Constellation" />
-      <p>Prepared by Aldo Calitz, Constellation &mdash; uxconstellation.com &mdash; aldo@uxconstellation.com</p>
+      <p>Prepared by Constellation for Aspen Digital &mdash; uxconstellation.com</p>
       <p>Confidential. April 2026.</p>
     </div>
   </footer>
